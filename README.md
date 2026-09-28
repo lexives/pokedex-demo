@@ -23,3 +23,19 @@ save time, feel free to note it.
 and share the link. If private, add the reviewers we specify as collaborators
 so we can pull and run it. Include a short README covering how to run it,
 the choices you made and why, and what you'd do next with more time.
+
+## What I Did
+
+- Researched best target and minimum SDKs: https://developer.android.com/google/play/requirements/target-sdk
+- Researched UI examples of other pokédex apps (google images) to get quick design inspiration
+- Looked through https://pokeapi.co docs and tested hitting some endpoints in insomnia
+- 
+
+### Decisions I Made
+- Minimum SDK will be API 34, due to this requirement from Google:
+    - > "New apps and app updates must target Android 16 (API level 36) or higher to be submitted to
+      > Google Play; except for Wear OS and Android Automotive OS apps, which must target Android 15
+      > (API level 35) or higher, and Android TV and Android XR apps, which must target Android 14
+      > (API level 34) or higher."
+    - I intend to expand upon this demo app for my personal use, so I would like to target as many
+      device types as I can.
