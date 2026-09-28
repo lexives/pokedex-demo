@@ -1,4 +1,4 @@
-package com.example.pokedex.demo
+package com.lexives.pokedex
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.pokedex.demo.ui.theme.PokedexDemoTheme
+import com.lexives.pokedex.ui.theme.PokedexDemoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

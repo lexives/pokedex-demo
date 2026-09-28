@@ -1,4 +1,4 @@
-package com.example.pokedex.demo.ui.theme
+package com.lexives.pokedex.ui.theme
 
 import android.app.Activity
 import android.os.Build

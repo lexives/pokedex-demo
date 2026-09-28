@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pokedex.demo"
+    namespace = "com.lexives.pokedex"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.pokedex.demo"
+        applicationId = "com.lexives.pokedex"
         minSdk = 34
         targetSdk = 37
         versionCode = 1

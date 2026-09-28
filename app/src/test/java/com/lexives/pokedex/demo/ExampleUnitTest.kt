@@ -1,4 +1,4 @@
-package com.example.pokedex.demo
+package com.lexives.pokedex
 
 import org.junit.Test
 
