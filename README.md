@@ -30,6 +30,7 @@ the choices you made and why, and what you'd do next with more time.
 - Researched UI examples of other pokédex apps (google images) to get quick design inspiration.
 - Looked through https://pokeapi.co docs and tested hitting some endpoints in insomnia.
 - Set up project with a modularized structure and Hilt, Moshi, and Retrofit libraries.
+  - Used AI (Gemini in Android Studio) to reserach best practices around modularization and Hilt setup
 
 ### Decisions I Made
 - Minimum SDK will be API 34, due to this requirement from Google:
@@ -40,6 +41,6 @@ the choices you made and why, and what you'd do next with more time.
     - I intend to expand upon this demo app for my personal use, so I would like to target as many
       device types as I can.
 - Using a modularized app structure to mimic a real-world application.
-- Using Hilt, Moshi, and Retrofit as my only other dependencies.
+- Using dependencies Hilt, Moshi, and Retrofit.
   - Though not _strictly_ necessary, these are the libraries I'm familiar with, they provide much
   needed functionality, and they are lightweight enough for a small project like this.

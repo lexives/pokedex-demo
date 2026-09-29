@@ -13,5 +13,6 @@ kotlin {
 }
 dependencies {
     implementation(libs.moshi)
+    testImplementation(libs.junit)
 }
 
