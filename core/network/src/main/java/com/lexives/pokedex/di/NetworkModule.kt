@@ -1,5 +1,6 @@
 package com.lexives.pokedex.di
 
+import com.lexives.pokedex.service.PokeApiService
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -13,6 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
     @Provides
+    @Singleton
     fun provideMoshi(): Moshi {
         return Moshi.Builder().build()
     }
@@ -26,5 +28,13 @@ object NetworkModule {
             .baseUrl("https://pokeapi.co/api/v2")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun providePokeApiService(
+        retrofit: Retrofit
+    ): PokeApiService {
+        return retrofit.create(PokeApiService::class.java)
     }
 }
