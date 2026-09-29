@@ -1,4 +1,4 @@
-package com.lexives.pokedex
+package com.lexives.pokedex.dto
 
 import com.squareup.moshi.JsonClass
 

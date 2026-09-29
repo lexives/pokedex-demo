@@ -1,7 +1,7 @@
 package com.lexives.pokedex.service
 
-import com.lexives.pokedex.PokemonListResponse
-import com.lexives.pokedex.PokemonResponse
+import com.lexives.pokedex.dto.PokemonListResponse
+import com.lexives.pokedex.dto.PokemonResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
