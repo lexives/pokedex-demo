@@ -16,10 +16,8 @@ kotlin {
 dependencies {
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.core)
-    implementation(libs.moshi)
     implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.kotlinx.coroutines.android)
     implementation(project(":core:model"))
-    testImplementation(libs.junit)
-    testImplementation(kotlin("test"))
+    implementation(project(":core:network"))
 }

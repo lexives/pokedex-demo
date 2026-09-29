@@ -32,7 +32,7 @@ the choices you made and why, and what you'd do next with more time.
 - Set up project with a modularized structure and Hilt, Moshi, and Retrofit libraries.
   - Used AI (Gemini in Android Studio) to reserach best practices around modularization and Hilt setup
 
-### Decisions I Made
+### Architectural Decisions
 - Minimum SDK will be API 34, due to this requirement from Google:
     - > "New apps and app updates must target Android 16 (API level 36) or higher to be submitted to
       > Google Play; except for Wear OS and Android Automotive OS apps, which must target Android 15
@@ -44,3 +44,11 @@ the choices you made and why, and what you'd do next with more time.
 - Using dependencies Hilt, Moshi, and Retrofit.
   - Though not _strictly_ necessary, these are the libraries I'm familiar with, they provide much
   needed functionality, and they are lightweight enough for a small project like this.
+
+### Cuts for time
+- An assumption is made that when we make the api call to `/pokemon`, we will always get as many
+results as we requested (i.e. if `limit=20` we will get 20 results). Normally I wouldn't assume that
+any response from an api is what we expect it to be, but this assumption cuts down on a lot of 
+logic.
+- Skipping unit tests for PokemonRepository. This would require setup to inject a mock service and
+some more fiddling with Gradle dependencies.
