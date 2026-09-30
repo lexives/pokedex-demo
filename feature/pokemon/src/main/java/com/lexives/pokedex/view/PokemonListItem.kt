@@ -53,7 +53,7 @@ fun PokemonListItem(
             modifier = Modifier.padding(end = 8.dp)
         )
         Text(
-            text = pokemon.name, // TODO: title case
+            text = pokemon.name,
             color = Color.White,
             fontSize = 24.sp,
             modifier = Modifier.weight(1f)
