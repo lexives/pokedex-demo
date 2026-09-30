@@ -26,10 +26,10 @@ class PokemonRepository @Inject constructor(
     /**
      * Fetches the next page of Pokémon data from the API.
      *
-     * @param pageSize The number of Pokémon to fetch.
+     * @param pageSize The number of Pokémon to fetch. Default is 20.
      * @return A [DataState] object containing a list of [Pokemon] objects wrapped in their own [DataState].
      */
-    suspend fun getNextPokemonPage(pageSize: Int): DataState<List<DataState<Pokemon>>> {
+    suspend fun getNextPokemonPage(pageSize: Int = 20): DataState<List<DataState<Pokemon>>> {
         return if (!hasMorePages) {
             Success(emptyList())
         } else {
