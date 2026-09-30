@@ -54,3 +54,4 @@ logic.
 some more fiddling with Gradle dependencies.
 - UI tests completely, since there's not a whole lot to test anyway.
 - Style definition with consistent colors, text styles, padding values, etc.
+- Outlined text within the type chips

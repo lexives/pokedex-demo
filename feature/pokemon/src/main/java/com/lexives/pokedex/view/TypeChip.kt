@@ -22,12 +22,16 @@ fun TypeChip(
 ) {
     Text(
         text = type.name.uppercase(),
-        color = Color.White, // TODO: dynamic colors
+        color = Color.White,
         fontSize = 12.sp,
         fontWeight = FontWeight.Bold,
         modifier = modifier
             .clip(RoundedCornerShape(4.dp))
-            .background(Color.Gray) // TODO: dynamic colors
+            .background(
+                type.getColorHex()?.let {
+                    Color(it)
+                } ?: Color.LightGray
+            )
             .border(1.dp, Color.DarkGray, RoundedCornerShape(4.dp)) // TODO: dynamic colors
             .padding(6.dp)
     )
