@@ -25,7 +25,7 @@ inline fun <T, R> Response<T>.toDataState(
     } catch (e: Exception) {
         // Since this can be run in suspend functions, we don't want to swallow cancellation exceptions
         if (e is CancellationException) throw e
-        return Error(e.message ?: "")
+        return Error(e.message ?: e.toString())
     }
 
     return Success(mapped)

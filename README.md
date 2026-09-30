@@ -24,6 +24,10 @@ and share the link. If private, add the reviewers we specify as collaborators
 so we can pull and run it. Include a short README covering how to run it,
 the choices you made and why, and what you'd do next with more time.
 
+## How to Run the App
+To install the app you must open the project in Android Studio and build/deploy to an android
+device. Once it's installed you can open and run it!
+
 ## What I Did
 
 - Researched best target and minimum SDKs: 

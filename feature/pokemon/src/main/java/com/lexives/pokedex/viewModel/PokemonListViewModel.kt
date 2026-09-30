@@ -28,9 +28,8 @@ class PokemonListViewModel @Inject constructor(
             // representing the state of each Pokémon in the list.
             val pokemonListState: DataState<List<DataState<Pokemon>>> = Loading(),
 
-            // A map of indices to the names of the Pokémon that are currently getting fetched.
-            // Indeces correspond to the postion in pokemonListState.
-            val nextPage: Map<Int, String?> = emptyMap()
+            // Boolean to indicate if we are currently fetching details for the next page of Pokémon
+            val isLoading: Boolean = false,
         )
     }
 
@@ -40,27 +39,30 @@ class PokemonListViewModel @Inject constructor(
 
     fun fetchMorePokemon() {
         // Prevent duplicate requests while a page is already loading
-        if (viewState.value.nextPage.isNotEmpty()) return
+        if (viewState.value.isLoading) return
 
         viewModelScope.launch {
             val result = pokemonRepository.getNextPokemonPage()
             if (result is Success) {
+                // If data is empty then there are no more pages to fetch
+                if (result.data.isEmpty()) return@launch
+
                 // On a success, add Loading states to the list of Pokémon states while we fetch
                 // more data
                 val loadingStates = result.data.map { Loading<Pokemon>() }
                 val currentListState = viewState.value.pokemonListState
                 val currentList = if (currentListState is Success) { currentListState.data } else emptyList()
                 val newPokemonList = currentList + loadingStates
+                val nextPage = result.data.mapIndexed { i, name ->
+                    (i + currentList.size) to name
+                }.toMap()
 
-                // Update the view state with the new list of Pokémon states and the next page
-                // that's waiting to be fetched
+                // Update the view state with the new list of states and set isLoading to true
                 viewState.value = viewState.value.copy(
                     pokemonListState = Success(newPokemonList),
-                    nextPage = result.data.mapIndexed { i, name ->
-                        (i + currentList.size) to name
-                    }.toMap()
+                    isLoading = true
                 )
-                fetchPokemonData()
+                fetchPokemonData(nextPage)
             } else if (result is Error) {
                 // On an error, update the view state with the error if we are loading the first
                 // batch of Pokémon, but leave it as-is if it's already in a success state
@@ -73,11 +75,15 @@ class PokemonListViewModel @Inject constructor(
         }
     }
 
-    private fun fetchPokemonData() {
+    private fun fetchPokemonData(
+        // A map of indices to the names of the Pokémon that are currently getting fetched.
+        // Indeces correspond to the postion in pokemonListState.
+        nextPage: Map<Int, String?>
+    ) {
         viewModelScope.launch {
             supervisorScope {
                 // Fetch Pokémon data concurrently
-                val results: Map<Int, DataState<Pokemon>> = viewState.value.nextPage.map { entry ->
+                val results: Map<Int, DataState<Pokemon>> = nextPage.map { entry ->
                     async {
                         entry.key to pokemonRepository.getPokemonByName(entry.value)
                     }
@@ -103,7 +109,7 @@ class PokemonListViewModel @Inject constructor(
                 }
                 viewState.value = viewState.value.copy(
                     pokemonListState = Success(newPokemonList),
-                    nextPage = emptyMap()
+                    isLoading = false
                 )
             }
         }

@@ -100,7 +100,7 @@ fun PokemonList(
     ) {
         itemsIndexed(
             items = pokemonList,
-            key = { i, _ -> i }
+            key = { i, _ -> "pokemon_list_$i" }
         ) { _, pokemonState ->
             when (pokemonState) {
                 is Loading -> {
