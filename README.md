@@ -30,7 +30,7 @@ the choices you made and why, and what you'd do next with more time.
 - Researched UI examples of other pokédex apps (google images) to get quick design inspiration.
 - Looked through https://pokeapi.co docs and tested hitting some endpoints in insomnia.
 - Set up project with a modularized structure and Hilt, Moshi, and Retrofit libraries.
-  - Used AI (Gemini in Android Studio) to reserach best practices around modularization and Hilt setup
+  - Used AI (Gemini in Android Studio) to research best practices around modularization and Hilt setup
 
 ### Architectural Decisions
 - Minimum SDK will be API 34, due to this requirement from Google:
@@ -45,10 +45,12 @@ the choices you made and why, and what you'd do next with more time.
   - Though not _strictly_ necessary, these are the libraries I'm familiar with, they provide much
   needed functionality, and they are lightweight enough for a small project like this.
 
-### Cuts for time
+### Cuts for Time
 - An assumption is made that when we make the api call to `/pokemon`, we will always get as many
 results as we requested (i.e. if `limit=20` we will get 20 results). Normally I wouldn't assume that
 any response from an api is what we expect it to be, but this assumption cuts down on a lot of 
 logic.
-- Skipping unit tests for PokemonRepository. This would require setup to inject a mock service and
+- Unit tests for PokemonRepository. This would require setup to inject a mock service and
 some more fiddling with Gradle dependencies.
+- UI tests completely, since there's not a whole lot to test anyway.
+- Style definition with consistent colors, text styles, padding values, etc.

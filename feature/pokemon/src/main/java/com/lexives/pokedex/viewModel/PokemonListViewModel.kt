@@ -1,15 +1,14 @@
-package com.lexives.pokedex
+package com.lexives.pokedex.viewModel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.lexives.pokedex.domain.Pokemon
 import com.lexives.pokedex.repository.PokemonRepository
 import com.lexives.pokedex.state.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import javax.inject.Inject
-import androidx.lifecycle.viewModelScope
-import com.lexives.pokedex.state.DataState.Success
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class PokemonListViewModel @Inject constructor(
@@ -21,14 +20,14 @@ class PokemonListViewModel @Inject constructor(
         viewModelScope.launch {
             val result = pokemonRepository.getNextPokemonPage()
 
-            if (result is Success) {
+            if (result is DataState.Success) {
                 when (viewState.value.pokemonListState) {
-                    is Success -> {
+                    is DataState.Success -> {
                         val currentListState = viewState.value.pokemonListState
-                                as Success<List<DataState<Pokemon>>>
+                                as DataState.Success<List<DataState<Pokemon>>>
 
                         viewState.value = viewState.value.copy(
-                            pokemonListState = Success(
+                            pokemonListState = DataState.Success(
                                 currentListState.data + result.data
                             )
                         )
