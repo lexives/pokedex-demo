@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.lexives.pokedex.domain.PokemonSprites
 
+val SPRITE_SIZE = 72.dp
+
 @Composable
 fun PokemonSprite(
     sprites: PokemonSprites,
@@ -26,7 +28,7 @@ fun PokemonSprite(
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .size(48.dp)
+            .size(SPRITE_SIZE)
             .clip(CircleShape)
             .background(Color.LightGray)
             .border(
@@ -38,12 +40,13 @@ fun PokemonSprite(
         sprites.frontDefault?.let {
             AsyncImage(
                 model = it,
-                contentDescription = null
+                contentDescription = null,
+                modifier = Modifier.size(SPRITE_SIZE)
             )
         } ?: Text(
             text = "?",
             color = Color.DarkGray,
-            fontSize = 36.sp,
+            fontSize = 50.sp,
             fontWeight = FontWeight.Bold
         )
     }

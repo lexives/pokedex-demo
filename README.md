@@ -26,7 +26,8 @@ the choices you made and why, and what you'd do next with more time.
 
 ## What I Did
 
-- Researched best target and minimum SDKs: https://developer.android.com/google/play/requirements/target-sdk
+- Researched best target and minimum SDKs: 
+https://developer.android.com/google/play/requirements/target-sdk
 - Researched UI examples of other pokédex apps (google images) to get quick design inspiration.
 - Looked through https://pokeapi.co docs and tested hitting some endpoints in insomnia.
 - Set up project with a modularized structure and Hilt, Moshi, and Retrofit libraries.
@@ -50,17 +51,16 @@ the choices you made and why, and what you'd do next with more time.
 results as we requested (i.e. if `limit=20` we will get 20 results). Normally I wouldn't assume that
 any response from an api is what we expect it to be, but this assumption cuts down on a lot of 
 logic.
-- Unit tests for PokemonRepository
+- Viewmodel methods are a little clunky right now and don't fully handle Error states. Ideally I'd
+break them apart for readability and possibly restructure the view state so that I'm not managing
+two separate lists.
+- Unit tests for PokemonRepository and PokemonListViewModel
 - UI tests for composables
 - Style definition with consistent colors, text styles, padding values, etc.
 - Outlined text within the type chips
 - Dedicated talkback support using mergeDescendants
-- Extracting resources from composables, and saving reused values in constants
+- Extracting resources from composables and saving more values in constants
 - Retry loading Pokémon data if there's an error
 - Display some sort of loading indicator at the bottom of the page when waiting for the initial 
 Pokémon list data
 - Error logging
-- Viewmodel methods are a little clunky right now and don't fully handle Error states. Ideally I'd
-break them apart for readability and possibly restructure the view state so that I'm not managing
-two separate lists.
-

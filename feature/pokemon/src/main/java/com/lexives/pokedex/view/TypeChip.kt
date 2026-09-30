@@ -23,8 +23,9 @@ fun TypeChip(
     Text(
         text = type.name.uppercase(),
         color = Color.White,
-        fontSize = 12.sp,
+        fontSize = 14.sp,
         fontWeight = FontWeight.Bold,
+        lineHeight = 14.sp,
         modifier = modifier
             .clip(RoundedCornerShape(4.dp))
             .background(

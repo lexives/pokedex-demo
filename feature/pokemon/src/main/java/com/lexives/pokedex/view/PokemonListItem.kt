@@ -32,6 +32,8 @@ import com.lexives.pokedex.domain.Pokemon
 import com.lexives.pokedex.domain.PokemonSprites
 import com.lexives.pokedex.domain.PokemonType
 
+val CONTENT_PADDING = 12.dp
+
 @Composable
 fun PokemonListItem(
     pokemon: Pokemon,
@@ -44,7 +46,7 @@ fun PokemonListItem(
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp))
             .background(Color(0xFF5A6F85))
-            .padding(12.dp)
+            .padding(CONTENT_PADDING)
     ) {
         PokemonSprite(
             sprites = pokemon.sprites,
@@ -53,7 +55,7 @@ fun PokemonListItem(
         Text(
             text = pokemon.name, // TODO: title case
             color = Color.White,
-            fontSize = 18.sp,
+            fontSize = 24.sp,
             modifier = Modifier.weight(1f)
         )
         TypeChip(type = pokemon.firstType)
@@ -98,18 +100,18 @@ fun PokemonListItemLoading(
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp))
             .background(brush)
-            .padding(12.dp)
+            .padding(CONTENT_PADDING)
     ) {
         Box(
             modifier = Modifier
-                .size(48.dp)
+                .size(SPRITE_SIZE)
                 .clip(CircleShape)
                 .background(Color.White.copy(alpha = 0.3f))
         )
         Box(
             modifier = Modifier
                 .weight(1f)
-                .height(18.dp)
+                .height(36.dp)
                 .padding(start = 8.dp)
                 .clip(RoundedCornerShape(4.dp))
                 .background(Color.White.copy(alpha = 0.3f))
@@ -129,16 +131,13 @@ fun PokemonListItemError(
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp))
             .background(Color(0xFF5A6F85))
-            .padding(vertical = 24.dp, horizontal = 12.dp)
+            .padding(vertical = 36.dp, horizontal = CONTENT_PADDING)
     ) {
         Text(
             text = "Failed to load Pokémon data",
             color = Color.White.copy(alpha = 0.8f),
             fontSize = 16.sp,
             fontStyle = FontStyle.Italic,
-            modifier = Modifier
-                .weight(1f)
-                .padding(horizontal = 8.dp)
         )
     }
 }
