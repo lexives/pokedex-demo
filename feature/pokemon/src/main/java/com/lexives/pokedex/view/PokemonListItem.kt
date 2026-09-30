@@ -31,9 +31,12 @@ fun PokemonListItem(
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp))
             .background(Color(0xFF5A6F85))
-            .padding(16.dp)
+            .padding(12.dp)
     ) {
-        // TODO: image
+        PokemonSprite(
+            sprites = pokemon.sprites,
+            modifier = Modifier.padding(end = 8.dp)
+        )
         Text(
             text = pokemon.name, // TODO: title case
             color = Color.White,

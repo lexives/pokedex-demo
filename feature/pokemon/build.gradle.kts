@@ -40,6 +40,8 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
     implementation(project(":core:data"))
     implementation(project(":core:model"))
     debugImplementation(libs.androidx.compose.ui.tooling)

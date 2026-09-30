@@ -41,7 +41,7 @@ the choices you made and why, and what you'd do next with more time.
     - I intend to expand upon this demo app for my personal use, so I would like to target as many
       device types as I can.
 - Using a modularized app structure to mimic a real-world application.
-- Using dependencies Hilt, Moshi, and Retrofit.
+- Using dependencies Hilt, Moshi, Retrofit, and Coil.
   - Though not _strictly_ necessary, these are the libraries I'm familiar with, they provide much
   needed functionality, and they are lightweight enough for a small project like this.
 
@@ -55,3 +55,4 @@ some more fiddling with Gradle dependencies.
 - UI tests completely, since there's not a whole lot to test anyway.
 - Style definition with consistent colors, text styles, padding values, etc.
 - Outlined text within the type chips
+- Dedicated talkback support using mergeDescendants
