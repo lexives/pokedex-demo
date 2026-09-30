@@ -50,11 +50,17 @@ the choices you made and why, and what you'd do next with more time.
 results as we requested (i.e. if `limit=20` we will get 20 results). Normally I wouldn't assume that
 any response from an api is what we expect it to be, but this assumption cuts down on a lot of 
 logic.
-- Unit tests for PokemonRepository. This would require setup to inject a mock service and
-some more fiddling with Gradle dependencies.
-- UI tests completely, since there's not a whole lot to test anyway.
+- Unit tests for PokemonRepository
+- UI tests for composables
 - Style definition with consistent colors, text styles, padding values, etc.
 - Outlined text within the type chips
 - Dedicated talkback support using mergeDescendants
-- Retry loading pokémon data if there's an error
+- Extracting resources from composables, and saving reused values in constants
+- Retry loading Pokémon data if there's an error
+- Display some sort of loading indicator at the bottom of the page when waiting for the initial 
+Pokémon list data
+- Error logging
+- Viewmodel methods are a little clunky right now and don't fully handle Error states. Ideally I'd
+break them apart for readability and possibly restructure the view state so that I'm not managing
+two separate lists.
 
