@@ -16,14 +16,12 @@ class PokemonTest {
             PokemonTypesResponse(
                 slot = 1,
                 type = PokemonTypeResponse(
-                    id = 12,
                     name = "grass"
                 )
             ),
             PokemonTypesResponse(
                 slot = 2,
                 type = PokemonTypeResponse(
-                    id = 4,
                     name = "poison"
                 )
             )
@@ -37,11 +35,9 @@ class PokemonTest {
             name = "bulbasaur",
             sprites = PokemonSprites(),
             firstType = PokemonType(
-                id = 12,
                 name = "grass"
             ),
             secondType = PokemonType(
-                id = 4,
                 name = "poison"
             )
         )

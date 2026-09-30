@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
     alias(libs.plugins.jetbrains.kotlin.jvm)
+    alias(libs.plugins.google.devtools.ksp)
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -12,6 +13,7 @@ kotlin {
     }
 }
 dependencies {
+    ksp(libs.moshi.compiler)
     implementation(libs.moshi)
     testImplementation(libs.junit)
 }

@@ -30,6 +30,5 @@ data class PokemonTypesResponse(
 
 @JsonClass(generateAdapter = true)
 data class PokemonTypeResponse(
-    val id: Int? = null,
     val name: String? = null
 )

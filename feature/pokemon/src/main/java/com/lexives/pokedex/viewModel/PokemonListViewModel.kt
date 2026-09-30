@@ -16,6 +16,10 @@ class PokemonListViewModel @Inject constructor(
 ): ViewModel() {
     val viewState = MutableStateFlow<ViewState>(ViewState())
 
+    init {
+        fetchMorePokemon()
+    }
+
     fun fetchMorePokemon() {
         viewModelScope.launch {
             val result = pokemonRepository.getNextPokemonPage()

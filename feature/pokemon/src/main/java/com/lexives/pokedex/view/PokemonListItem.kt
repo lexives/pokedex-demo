@@ -154,11 +154,9 @@ fun PokemonListItemPreview() {
             name = "bulbasaur",
             sprites = PokemonSprites(),
             firstType = PokemonType(
-                id = 12,
                 name = "grass"
             ),
             secondType = PokemonType(
-                id = 4,
                 name = "poison"
             )
         )

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -19,6 +20,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -88,10 +90,12 @@ fun PokemonListSplashScreen() {
         AsyncImage(
             model = "https://wallpapercave.com/wp/wp8813113.jpg",
             contentDescription = null,
+            contentScale = ContentScale.FillBounds,
             modifier = Modifier.fillMaxSize()
         )
         CircularProgressIndicator(
-            color = Color.White
+            color = Color.White,
+            modifier = Modifier.size(64.dp)
         )
     }
 }
@@ -122,7 +126,7 @@ fun PokemonList(
         verticalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(vertical = 56.dp, horizontal = 16.dp)
     ) {
         pokemonList.forEachIndexed { i, pokemonState ->
             item(key = i) {
@@ -159,11 +163,9 @@ fun PokemonListPreview() {
                     name = "bulbasaur",
                     sprites = PokemonSprites(),
                     firstType = PokemonType(
-                        id = 12,
                         name = "grass"
                     ),
                     secondType = PokemonType(
-                        id = 4,
                         name = "poison"
                     )
                 )
@@ -174,7 +176,6 @@ fun PokemonListPreview() {
                     name = "charmander",
                     sprites = PokemonSprites(),
                     firstType = PokemonType(
-                        id = 10,
                         name = "fire"
                     )
                 )
@@ -185,7 +186,6 @@ fun PokemonListPreview() {
                     name = "squirtle",
                     sprites = PokemonSprites(),
                     firstType = PokemonType(
-                        id = 11,
                         name = "water"
                     )
                 )

@@ -44,7 +44,6 @@ fun TypeChip(
 fun TypeChipPreview() {
     TypeChip(
         PokemonType(
-            id = 12,
             name = "grass"
         )
     )
