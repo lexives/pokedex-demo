@@ -56,3 +56,5 @@ some more fiddling with Gradle dependencies.
 - Style definition with consistent colors, text styles, padding values, etc.
 - Outlined text within the type chips
 - Dedicated talkback support using mergeDescendants
+- Retry loading pokémon data if there's an error
+

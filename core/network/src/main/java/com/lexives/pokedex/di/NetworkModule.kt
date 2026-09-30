@@ -25,7 +25,7 @@ object NetworkModule {
         moshi: Moshi
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://pokeapi.co/api/v2")
+            .baseUrl("https://pokeapi.co/api/v2/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
     }
